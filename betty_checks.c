@@ -16,9 +16,9 @@ int main(void)
 
 	if (a != 0)
 	{
-		c = b + a
+		c = b + a;
 		printf("c equal %d\n" c);
 	}
 
-	return(0)
+return (0);
 }
