@@ -2,22 +2,21 @@
 #include <unistd.h>
 
 /**
-  * main - simple additcion
+  * add - simple additcion
   *
   * Return: reture zero (0)
   *
   */
 
-int main(void)
+int add (void)
 {
 	int a = 3;
 	int b = 4;
-	int c;
+	int c = a + b;
 
 	if (a != 0)
 	{
-		c = b + a;
-		printf("c equal %d\n" c);
+		printf("c equal %d\n", c);
 	}
 
 return (0);
