@@ -54,11 +54,9 @@ void input(char **arguv, char **environ)
 		if (child_pid == 0)
 		{
 			if (execve(argv[0], argv, environ) == -1)
-				printf("%s: no such file or directory \n", arguv[0]);
-			else
-				wait(&status);
+		       printf("%s: no such file or directory \n", arguv[0]);
 		}
-
+		wait(&status);
 
 	}
 
