@@ -38,7 +38,7 @@ return (count);
 int main(void)
 {
 	pid_t pid;
-	size_t n, strcount = 0;
+	size_t n = 0;
 	ssize_t getstat = 0;
 	ssize_t execstat = 0;
 	char *str = NULL;
@@ -58,13 +58,13 @@ int main(void)
 		return (-1);
 	}
 	ac = count_spaces(str);
-	av = (char **)malloc(sizeof(char *) * ac);
+	av = (char **)malloc(sizeof(char *) * (ac + 1));
 
 	token = strtok(str, delim);
 
 
 	count = 0;
-	while (count < (ac - 1))
+	while (count <= (ac - 1))
 	{
 		av[count] = token;
 		printf("the value of av[%d] is %s\n", count, av[count]);
