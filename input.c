@@ -11,7 +11,7 @@
 
 void input(char **arguv, char **environ)
 {
-	int z, i, m, status;
+	int i, z, m, status;
 	char *string = NULL;
 	size_t n = 0;
 	ssize_t ret_char;
@@ -24,7 +24,6 @@ void input(char **arguv, char **environ)
 		{
 			printf("cisfun$");
 		}
-
 		ret_char = getline(&string, &n, stdin);
 		if (ret_char == 1)
 		{
