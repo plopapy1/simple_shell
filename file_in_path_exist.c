@@ -40,3 +40,15 @@ return (0);
 }
 free(newFilename);
 return (-1);
+}
+else
+{
+strcpy(path, direct[0]);
+strcat(path, filename);
+if (access(path, F_OK) != -1)
+{
+return (0);
+}
+return (-1);
+}
+}
