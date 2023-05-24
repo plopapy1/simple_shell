@@ -8,163 +8,62 @@
 #include <signal.h>
 #include "main.h"
 
-int file_exist(const char *filename)
+void free_end(char *buf, char *buff, char *bufff)
 {
-char path[256];
-char *direct[] = {"/bin/"};
-strcpy(path, direct[0]);
-strcat(path, filename);
-if (access(path, F_OK) != -1)
-{
-return (0);
-}
-return (-1);
+	free(buf);
+	free(buff);
+	free(bufff);
 }
 
-char *pre_fix(char *str)
+int main(int argc, char *argv[])
 {
-const char dir[] = "/bin/";
-
-
-if (strncmp(str, dir, sizeof(dir) - 1) != 0)
-{
-
-size_t oLen = strlen(str);
-size_t nLen = sizeof(dir) - 1 + oLen + 1;
-char *newStr = (char *)malloc(nLen);
-	if (newStr == NULL)
-	{
-		printf("malloc failed\n");
-		exit(1);
-	}
-
-strcpy(newStr, dir);
-
-strcat(newStr, str);
-
-strcpy(str, newStr);
-
-free(newStr);
-}
-return (str);
-}
-
-
-void ter_minate(int sig)
-{
-	(void)sig;
-	printf("\n");
-	exit(EXIT_SUCCESS);
-}
-
-int count_spaces(const char *input)
-{
-int count = 0;
-while (*input != '\0' && input[0] == ' ')
-{
-input++;
-if (*input == ' ')
-{
-if (*(input + 1) != '\n' && *(input - 1) != ' ' && *(input + 1) != ' ')
-count++;
-}
-}
-
-while (*input)
-{
-if (*input == ' ')
-{
-if (*(input + 1) != '\n' && *(input + 1) != '\0' && *(input + 1) != ' ')
-count++;
-}
-input++;
-}
-count++;
-return (count);
-}
-
-
-
-int main(void)
-{
-	pid_t pid;
 	size_t n = 0;
-	ssize_t getstat, execstat = 0;
-	char *chk_file;
+	ssize_t getstat;
+	char *chk_file, *o_cmd;
 	char *str = NULL, *delim = " \n", *token, *pre_pre, *b_pre, **av = NULL;
-	int ac, count, chk_int;
+	int ac, count, chk_int, echo_chk;
 	signal(SIGINT, ter_minate);
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
 			printf("$ ");
-
 	getstat = getline(&str, &n, stdin);
 	if (getstat == -1)
-	{
 		break;
-	}
 	if (str[0] == '\n')
-	{
 		continue;
-	}
 	ac = count_spaces(str);
-	av = (char **)malloc(sizeof(char *) * (ac + 1));
-	if (av == NULL)
-	{
-		free(str);
-		printf("malloc failed\n");
-		exit(1);
-	}
+	av = av_buffer(ac, str);
 	token = strtok(str, delim);
 		if (strcmp("exit", token) == 0)
 		break;
-	b_pre = (char *)malloc(strlen(token) + 1);
-		if (b_pre == NULL)
-	{
-		printf("malloc failed\n");
-		exit(1);
-	}
+	b_pre = b_pre_buffer(token);
 	strcpy(b_pre, token);
+	o_cmd = b_pre_buffer(b_pre);
+	strcpy(o_cmd, b_pre);
 	chk_file = b_pre;
 	chk_int = file_exist(chk_file);
+	echo_chk = file_in_path_exist(chk_file);
 	pre_pre = pre_fix(b_pre);
 	count = 0;
 	av[0] = pre_pre;
-	while (count < (ac - 1))
+	while (count < (ac - 1) && argc <= ac)
 	{
 		count++;
 		token = strtok(NULL, delim);
 		av[count] = token;
-
 	}
 	count++;
 	av[count] = NULL;
-	if (chk_int == 0)
-	{
-		printf("ran fork\n");
-	pid = fork();
-	if (pid == -1)
-	{
-		perror("child failed\n");
-		return (-1);
-	}
-	if (pid == 0)
-	{
-	execstat = execve(av[0], av, NULL);
-	if (execstat == -1)
-	{
-		perror(NULL);
-		return (-1);
-	}
-	}
-	}
+	if (chk_int == 0 && isatty(STDIN_FILENO))
+		what_if(av);
+	else if (echo_chk == 0 && isatty(!STDIN_FILENO))
+		what_if(av);
 	else
-		printf("file does not exist\n");
+		printf("%s: 1: %s: not found\n", argv[0], o_cmd);
 	wait(NULL);
 	free(av);
 }
-	free(b_pre);
-	free(str);
+	free_end(o_cmd, b_pre, str);
 	return (0);
 }
