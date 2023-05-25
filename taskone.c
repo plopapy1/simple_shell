@@ -29,7 +29,7 @@ while (1)
 	if (getstat == -1)/* if getline failes*/
 	{
 		free(str);
-		exit(EXIT_SUCCESS);
+		exit(0);
 	}
 	str = r_newline(str); /*remove newline character*/
 	ac[0] = str;
@@ -39,7 +39,7 @@ while (1)
 	if (pid == -1)
 	{
 		free(str);
-		exit(EXIT_SUCCESS);
+		exit(0);
 	}
 	if (pid == 0)
 	{
