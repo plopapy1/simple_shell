@@ -33,7 +33,7 @@ char *delim = " \n\t\r", *token;
 token = strtok(input, delim);
 if (token == NULL)
 {
-	return (-1);
+	return (0);
 }
 while (token)
 {
@@ -54,9 +54,10 @@ char **av_buffer(int ac, char *str)
 char **av = (char **)malloc(sizeof(char *) * (ac + 1));
 if (av == NULL)
 {
-free(str);
+
 printf("malloc failed\n");
 exit(1);
 }
+free(str);
 return (av);
 }

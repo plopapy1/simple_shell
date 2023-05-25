@@ -15,11 +15,13 @@
 
 char *b_pre_buffer(char *tok)
 {
-	char *b_pre = (char *)malloc(strlen(tok) + 1);
-		if (b_pre == NULL)
+	char *b_space;
+
+	b_space = (char *)malloc(strlen(tok) + 1);
+		if (b_space == NULL)
 	{
 		printf("malloc failed\n");
 		exit(1);
 	}
-		return (b_pre);
+		return (b_space);
 }

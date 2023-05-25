@@ -45,13 +45,17 @@ char *str = NULL, *delim = " \n", *token, *pre_pre, *b_pre, **av = NULL;
 		exit(EXIT_SUCCESS);
 	if (str[0] == '\n')
 		continue;
+	if (str[0] == '\0')
+		continue;
 	str_dup = strdup(str);
 	ac = count_spaces(str);
+
 	av = av_buffer(ac, str);
 	token = strtok(str_dup, delim);
-		if (strcmp("exit", token) == 0)
-		break;
+	if (token == NULL || *token == '\0')
+	continue;
 	b_pre = b_pre_buffer(token);
+
 	strcpy(b_pre, token);
 	o_cmd = b_pre_buffer(b_pre);
 	strcpy(o_cmd, b_pre);
@@ -59,25 +63,30 @@ char *str = NULL, *delim = " \n", *token, *pre_pre, *b_pre, **av = NULL;
 	chk_int = file_exist(chk_file);
 	echo_chk = file_in_path_exist(chk_file);
 	pre_pre = pre_fix(b_pre);
+b_pre[strlen(b_pre)] = '\0';
+o_cmd[strlen(o_cmd)] = '\0';
+
 	count = 0;
 	av[0] = pre_pre;
 	while (count < (ac - 1) && argc <= ac)
 	{
 		count++;
 		token = strtok(NULL, delim);
-		av[count] = token;
+		av[count] = malloc(strlen(token) + 1);
+		strcpy(av[count], token);
 	}
 	count++;
 	av[count] = NULL;
 	if (chk_int == 0 && isatty(STDIN_FILENO))
 		what_if(av);
-	else if (echo_chk == 0 && isatty(!STDIN_FILENO))
+	else if (echo_chk == 0 && !isatty(STDIN_FILENO))
 		what_if(av);
 	else
 		printf("%s: 1: %s: not found\n", argv[0], o_cmd);
 	wait(NULL);
+
 	free(av);
 }
-	free_end(o_cmd, b_pre, str);
+	free_end(o_cmd, b_pre, str_dup);
 	return (0);
 }
