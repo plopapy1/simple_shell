@@ -3,6 +3,10 @@
 
 extern char **environ;
 
+char **ac_malloc(int ac, char *str);
+
+char *r_newline(char *str);
+
 int compareStrings(const char *str1, const char *str2);
 
 void print_environment(void);
