@@ -32,7 +32,6 @@ while (1)
 	}
 	str = r_newline(str); /*remove newline character*/
 	av = ac_malloc(argc, str);
-	printf("argc = %d\n", argc);
 	av[0] = str;
 	av[1] = NULL;
 	if (argc < 2)
