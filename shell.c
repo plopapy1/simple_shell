@@ -8,17 +8,34 @@
 #include <signal.h>
 #include "main.h"
 
-/*
- *main - the mainfunction
- *@argc: the number of arguments
- *@argv: the arguments
+/**
+ * subtractNumbers - to subtract two numbers
+ *@a: the number one
+ *@b: the number two
  *Return: the result of the addition
  */
 
-int substract(int num1, int num2)
+int subtractNumbers(int a, int b)
 {
-	int sum;
+int result = a - b;
+return (result);
+}
 
-	sum = (num1 - num2);
-	return (sum);
+/**
+ * main - to subtract two numbers
+ *Return: nothing
+ */
+int main(void)
+{
+	int difference;
+int num1, num2;
+printf("Enter number 1: ");
+scanf("%d", &num1);
+printf("Enter number2: ");
+scanf("%d", &num2);
+
+difference = subtractNumbers(num1, num2);
+printf("The difference is: %d\n", difference);
+
+return (0);
 }
