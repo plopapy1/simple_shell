@@ -26,32 +26,22 @@ void ter_minate(int sig)
  *@input: number of arguments passed
  *Return: int value
  */
-int count_spaces(const char *input)
+int count_spaces(char *input)
 {
 int count = 0;
-while (*input != '\0' && input[0] == ' ')
+char *delim = " \n\t\r", *token;
+token = strtok(input, delim);
+if (token == NULL)
 {
-input++;
-if (*input == ' ')
+	return (-1);
+}
+while (token)
 {
-if (*(input + 1) != '\n' && *(input - 1) != ' ' && *(input + 1) != ' ')
-count++;
+	token = strtok(NULL, delim);
+	count++;
 }
-}
-
-while (*input)
-{
-if (*input == ' ')
-{
-if (*(input + 1) != '\n' && *(input + 1) != '\0' && *(input + 1) != ' ')
-count++;
-}
-input++;
-}
-count++;
 return (count);
 }
-
 
 /**
  *av_buffer - function to create buffer for av

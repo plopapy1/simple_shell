@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int count_spaces(const char *input);
+int count_spaces(char *input);
 
 int file_exist(const char *filename);
 

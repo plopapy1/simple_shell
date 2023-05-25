@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 {
 	size_t n = 0;
 	ssize_t getstat;
-	char *chk_file, *o_cmd;
+	char *chk_file, *o_cmd, *str_dup;
 char *str = NULL, *delim = " \n", *token, *pre_pre, *b_pre, **av = NULL;
 	int ac, count, chk_int, echo_chk;
 
@@ -39,15 +39,16 @@ char *str = NULL, *delim = " \n", *token, *pre_pre, *b_pre, **av = NULL;
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("$ ");
+			printf("cisfun$ ");
 	getstat = getline(&str, &n, stdin);
 	if (getstat == -1)
 		break;
 	if (str[0] == '\n')
 		continue;
+	str_dup = strdup(str);
 	ac = count_spaces(str);
 	av = av_buffer(ac, str);
-	token = strtok(str, delim);
+	token = strtok(str_dup, delim);
 		if (strcmp("exit", token) == 0)
 		break;
 	b_pre = b_pre_buffer(token);
