@@ -42,7 +42,7 @@ char *str = NULL, *delim = " \n", *token, *pre_pre, *b_pre, **av = NULL;
 			printf("cisfun$ ");
 	getstat = getline(&str, &n, stdin);
 	if (getstat == -1)
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	if (str[0] == '\n')
 		continue;
 	if (str[0] == '\0')
