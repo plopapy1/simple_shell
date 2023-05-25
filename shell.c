@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	pid_t pid;
 	size_t n;
 	int getstat;
-	char *str, **av = NULL;
+	char *str = NULL, **av = NULL;
 
 while (1)
 {
@@ -32,6 +32,7 @@ while (1)
 	}
 	str = r_newline(str); /*remove newline character*/
 	av = ac_malloc(argc, str);
+	printf("argc = %d\n", argc);
 	av[0] = str;
 	av[1] = NULL;
 	if (argc < 2)
@@ -47,13 +48,9 @@ while (1)
 		if (execve(av[0], av, NULL) == -1)
 		printf("%s No such file or directory\n", argv[0]);
 	}
-	wait(NULL);
+			wait(NULL);
+			free(av);
 	}
-	else
-	{
-		free(av);
-		continue;
-	}
-	free(av);
 }
+return (0);
 }
