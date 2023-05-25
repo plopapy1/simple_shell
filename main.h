@@ -1,6 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+extern char **environ;
+
+int compareStrings(const char *str1, const char *str2);
+
+void print_environment(void);
+
 int count_spaces(char *input);
 
 int file_exist(const char *filename);
