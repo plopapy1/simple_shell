@@ -21,7 +21,7 @@ char *b_pre_buffer(char *tok)
 		if (b_space == NULL)
 	{
 		printf("malloc failed\n");
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 		return (b_space);
 }

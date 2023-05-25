@@ -14,12 +14,7 @@
  *@bufff: pointer three
  *Return: Nothing
  */
-void free_end(char *buf, char *buff, char *bufff)
-{
-	free(buf);
-	free(buff);
-	free(bufff);
-}
+
 
 /**
  *main - the main function
@@ -87,6 +82,9 @@ o_cmd[strlen(o_cmd)] = '\0';
 
 	free(av);
 }
-	free_end(o_cmd, b_pre, str_dup);
+	free(o_cmd);
+	free(b_pre);
+	free(str_dup);
+	free(b_pre);
 	return (0);
 }

@@ -49,15 +49,14 @@ return (count);
  *@str: pointer two
  *Return: av
  */
-char **av_buffer(int ac, char *str)
+char **av_buffer(int ac, char *strr)
 {
-char **av = (char **)malloc(sizeof(char *) * (ac + 1));
+char **av;
+	(void)strr;
+av = (char **)malloc(sizeof(char *) * (ac + 1));
 if (av == NULL)
 {
-
-printf("malloc failed\n");
-exit(1);
+exit(EXIT_FAILURE);
 }
-free(str);
 return (av);
 }
