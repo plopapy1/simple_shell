@@ -16,11 +16,11 @@
  *@env: the environment variable
  *Return: nothing
  */
-int main(int argc, char **argv, char **env)
+int main(int argc, char **argv, char **envp)
 {
 	if (argc == 1)
 	{
-		taskone(argv, env);
+		taskone(argv, envp);
 	}
 		return (0);
 }
