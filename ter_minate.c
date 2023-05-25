@@ -53,6 +53,8 @@ char **av_buffer(int ac, char *strr)
 {
 char **av;
 	(void)strr;
+	if (strr == NULL || *strr == '\0' || ac == 0)
+		return (NULL);
 av = (char **)malloc(sizeof(char *) * (ac + 1));
 if (av == NULL)
 {

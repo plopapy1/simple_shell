@@ -46,6 +46,8 @@ char *str = NULL, *delim = " \n", *token, *pre_pre, *b_pre, **av = NULL;
 	ac = count_spaces(str);
 
 	av = av_buffer(ac, str);
+	if (av == NULL || *str == '\0')
+		continue;
 	token = strtok(str_dup, delim);
 	if (token == NULL || *token == '\0')
 	continue;
