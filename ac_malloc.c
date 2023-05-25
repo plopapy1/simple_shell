@@ -22,7 +22,7 @@ char **ac_malloc(int ac, char *str)
 	{
 		printf("it is null\n");
 		free(str);
-	    exit(EXIT_FAILURE);
+	    exit(EXIT_SUCCESS);
 	}
 	return (av);
 }

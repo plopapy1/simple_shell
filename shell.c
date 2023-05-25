@@ -28,7 +28,7 @@ while (1)
 	if (getstat == -1)/* if getline failes*/
 	{
 		free(str);
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 	str = r_newline(str); /*remove newline character*/
 	av = ac_malloc(argc, str);
@@ -41,7 +41,7 @@ while (1)
 	if (pid == -1)
 	{
 		free(str);
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 	if (pid == 0)
 	{
