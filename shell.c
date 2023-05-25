@@ -13,7 +13,7 @@
  * main - to subtract two numbers
  *@argc: number of argument
  *@argv: the arguments
- *@env: the environment variable
+ *@envp: the environment variable
  *Return: nothing
  */
 int main(int argc, char **argv, char **envp)
