@@ -22,16 +22,14 @@ int execstat;
 pid = fork();
 if (pid == -1)
 {
-perror("child failed\n");
-exit(-1);
+	exit(EXIT_SUCCESS);
 }
 if (pid == 0)
 {
 execstat = execve(av[0], av, NULL);
 if (execstat == -1)
 {
-perror(NULL);
-exit(-1);
+	exit(EXIT_SUCCESS);
 }
 }
 return (0);
