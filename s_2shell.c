@@ -42,7 +42,7 @@ char *str = NULL, *delim = " \n", *token, *pre_pre, *b_pre, **av = NULL;
 			printf("cisfun$ ");
 	getstat = getline(&str, &n, stdin);
 	if (getstat == -1)
-		break;
+		return (0);
 	if (str[0] == '\n')
 		continue;
 	str_dup = strdup(str);
