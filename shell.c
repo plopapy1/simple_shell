@@ -13,7 +13,7 @@
  * main - to subtract two numbers
  *Return: nothing
  */
-int main(int argc, char *argv[])
+int main(int argc, char *argv[], char **env)
 {
 	pid_t pid;
 	size_t n;
@@ -44,7 +44,7 @@ while (1)
 	}
 	if (pid == 0)
 	{
-		if (execve(av[0], av, NULL) == -1)
+		if (execve(av[0], av, env) == -1)
 		printf("%s No such file or directory\n", argv[0]);
 	}
 			wait(NULL);
