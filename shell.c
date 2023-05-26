@@ -18,7 +18,7 @@
  */
 int main(int argc, char **argv, char **envp)
 {
-	if (argc > 30)
+	if (argc == 1)
 	{
 		taskone(argv, envp);
 	}
