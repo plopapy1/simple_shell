@@ -9,7 +9,7 @@
 #include "main.h"
 
 /**
- *token number - find number of arguments
+ *token_number - find number of arguments
  *@input: number of arguments passed
  *Return: int value
  */
