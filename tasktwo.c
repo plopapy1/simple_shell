@@ -11,7 +11,7 @@
 #define MAX_COMMAND 15
 
 /**
- *taskone - launched task one
+ *tasktwo - launched task one
  *@arg: the argument passed
  *@env: the environemt variable
  *Return: Nothing;
@@ -50,7 +50,6 @@ while (1)
 	{
 		if (execve(ac[0], ac, env) == -1)
 		printf("%s No such file or directory\n", arg[0]);
-        
 	}
 	else
 	wait(&status);
