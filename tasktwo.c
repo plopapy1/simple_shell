@@ -68,6 +68,7 @@ while (1)
 	}
 	else
 			printf("files does not exist\n");
+	exit(2);
 	continue;
 
 }
