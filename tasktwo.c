@@ -33,7 +33,10 @@ while (1)
 		free(str);
 		exit(0);
 	}
+
 	str = r_newline(str);
+	if (strcmp(str, "exit") == 0)
+		exit(0);
 	if (str[0] == '\0')
 		continue;
 	if (non_interspace(str) == -1)
