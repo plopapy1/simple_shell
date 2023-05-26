@@ -38,10 +38,7 @@ while (1)
 		continue;
 	if (non_interspace(str) == -1)
 		continue;
-	pre_fix(str);
 	ac[0] = strtok(str, delim);
-	if (file_exist(ac[0]) == 0)
-	{
 	count = 0;
 	while (ac[count] != NULL)
 		ac[++count] = strtok(NULL, delim);
@@ -57,13 +54,6 @@ while (1)
 		printf("%s No such file or directory\n", arg[0]);
 	}
 	else
-		wait(&status);
-	}
-
-	else
-		printf("file does not exist\n");
-continue;
-
+	wait(&status);
 }
-exit(0);
 }
