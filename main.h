@@ -9,6 +9,8 @@ char *r_newline(char *str);
 
 void taskone(char **arg, char **env);
 
+void remove_spaces(char *str);
+
 int compareStrings(const char *str1, const char *str2);
 
 void print_environment(void);

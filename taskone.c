@@ -32,6 +32,9 @@ while (1)
 		exit(0);
 	}
 	str = r_newline(str); /*remove newline character*/
+	remove_spaces(str);
+	if (str[0] == '\0')
+		continue;
 	ac[0] = str;
 	ac[1] = NULL;
 
@@ -44,6 +47,7 @@ while (1)
 	if (pid == 0)
 	{
 		if (execve(ac[0], ac, env) == -1)
+			printf("ac is = %s\n", ac[0]);
 		printf("%s No such file or directory\n", arg[0]);
 	}
 	else
