@@ -47,11 +47,11 @@ while (1)
 	if (pid == 0)
 	{
 		if (execve(ac[0], ac, env) == -1)
-
 		printf("%s No such file or directory\n", arg[0]);
+		exit(0);
 	}
 	else
 	wait(&status);
 }
-
+exit(0);
 }
