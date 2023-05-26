@@ -28,12 +28,12 @@ while (1)
 	if (isatty(STDIN_FILENO))
 		printf("cisfun$ ");
 	getstat = getline(&str, &n, stdin);
-	if (getstat == -1)/* if getline failes*/
+	if (getstat == -1)
 	{
 		free(str);
 		exit(0);
 	}
-	str = r_newline(str); /*remove newlineracter*/
+	str = r_newline(str);
 	if (str[0] == '\0')
 		continue;
 	ac[0] = strtok(str, delim);
@@ -50,10 +50,9 @@ while (1)
 	{
 		if (execve(ac[0], ac, env) == -1)
 		printf("%s No such file or directory\n", arg[0]);
-		exit(0);
+        
 	}
 	else
 	wait(&status);
 }
-exit(0);
 }
