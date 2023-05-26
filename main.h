@@ -11,6 +11,8 @@ void taskone(char **arg, char **env);
 
 void remove_spaces(char *str);
 
+char *search_path(char *command, char **env);
+
 int compareStrings(const char *str1, const char *str2);
 
 void print_environment(void);
