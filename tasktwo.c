@@ -40,7 +40,6 @@ while (1)
 	count = 0;
 	while (ac[count] != NULL)
 		ac[++count] = strtok(NULL, delim);
-	printf("ac[1] is %s\n", ac[1]);
 	pid = fork();
 	if (pid == -1)
 	{
@@ -50,10 +49,11 @@ while (1)
 	if (pid == 0)
 	{
 		if (execve(ac[0], ac, env) == -1)
-
 		printf("%s No such file or directory\n", arg[0]);
+		exit(0);
 	}
 	else
 	wait(&status);
 }
+exit(0);
 }
