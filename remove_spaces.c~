@@ -8,11 +8,6 @@
 #include <signal.h>
 #include "main.h"
 
-/**
- *remove_spaces - launched task one
- *@str: the argument passed
- *Return: Nothing;
- */
 
 void remove_spaces(char *str)
 {

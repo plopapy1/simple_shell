@@ -8,6 +8,13 @@
 #include <signal.h>
 #include "main.h"
 
+/**
+ *ac_malloc - launched task one
+ *@ac: the argument passed
+ *@str: the environemt variable
+ *Return: character pointer;
+ */
+
 char **ac_malloc(int ac, char *str)
 {
 	char **av = NULL;

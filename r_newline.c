@@ -8,6 +8,12 @@
 #include <signal.h>
 #include "main.h"
 
+/**
+ * r_newline - to subtract two numbers
+ *@str: number of argument
+ *Return: nothing
+ */
+
 char *r_newline(char *str)
 {
 	int nullcount = 0;

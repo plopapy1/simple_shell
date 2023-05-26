@@ -5,6 +5,13 @@
 #include <sys/wait.h>
 #include <string.h>
 
+/**
+ *search_path - launched task one
+ *@command: the argument passed
+ *@env: the environemt variable
+ *Return: Nothing;
+ */
+
 char *search_path(char *command, char **env)
 {
 char *path_env = NULL;
