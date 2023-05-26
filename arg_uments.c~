@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <stdbool.h>
+#include <signal.h>
+#include "main.h"
+
+/**
+ *argu_ments - makes arguments
+ *@arg: the argument passed
+ *Return: pointer to an array of pointers
+ */
+
+
+char **arguments(char **arg)
+{
+	char *token, *delim = " \n";
+
+		token = strtok(str_dup, delim);
+		if (token == NULL || *token == '\0')
+	continue;
+}

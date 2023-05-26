@@ -1,0 +1,26 @@
+#include <stdlib.h>
+
+/**
+ *freepointer_array - makes arguments
+ *@array: the argument passed
+ *@size: size of array
+ *Return: pointer to an array of pointers
+ */
+
+void freepointer_array(char **array, int size)
+{
+	int i;
+if (array == NULL)
+return;
+
+
+for (i = 0; i <= size; i++)
+{
+if (array[i] != NULL)
+{
+free(array[i]);
+array[i] = NULL;
+}
+}
+free(array);
+}

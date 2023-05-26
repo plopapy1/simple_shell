@@ -18,9 +18,15 @@
  */
 int main(int argc, char **argv, char **envp)
 {
+	/*
 	if (argc == 1)
 	{
 		taskone(argv, envp);
+	}
+	*/
+	if (argc >= 1)
+	{
+		tasktwo(argv, envp);
 	}
 		return (0);
 }

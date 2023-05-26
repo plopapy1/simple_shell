@@ -1,0 +1,43 @@
+void tasktwo(char **arg, char **env)
+{
+	pid_t pid;
+	size_t n;
+	int getstat, status, tn;
+	char *str = NULL, **ac;
+
+while (1)
+{
+	if (isatty(STDIN_FILENO))
+		printf("cisfun$ ");
+	getstat = getline(&str, &n, stdin);
+	if (getstat == -1)/* if getline failes*/
+	{
+		free(str);
+		exit(0);
+	}
+	if (str == NULL)
+		continue;
+	ac = arguments(str);
+	printf("ac[0] = %s\n", ac[0]);
+	printf("ac[1] = %s\n", ac[1]);
+
+	tn = (token_number(str));
+	pid = fork();
+	if (pid == -1)
+	{
+		free(str);
+		freepointer_array(ac, tn);
+		exit(0);
+	}
+	if (pid == 0)
+	{
+		if (execve(ac[0], ac, env) == -1)
+
+		printf("%s No such file or directory\n", arg[0]);
+	}
+	else
+	wait(&status);
+}
+free(str);
+		freepointer_array(ac, tn);
+}

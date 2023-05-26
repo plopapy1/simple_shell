@@ -13,6 +13,16 @@ void remove_spaces(char *str);
 
 char *search_path(char *command, char **env);
 
+void tasktwo(char **arg, char **env);
+
+char *arguments(char *input);
+
+int token_number(char *input);
+
+char *string_copy(const char *source);
+
+void freepointer_array(char **array, int size);
+
 int compareStrings(const char *str1, const char *str2);
 
 void print_environment(void);
