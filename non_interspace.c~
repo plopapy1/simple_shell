@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <stdbool.h>
+#include <signal.h>
+#include "main.h"
+
+/**
+ *tasktwo - launched task one
+ *@arg: the argument passed
+ *@env: the environemt variable
+ *Return: Nothing;
+ */
+
+int non_interspace(char *string)
+{
+	char *duplicate;
+
+	duplicate = strdup(string);
+
+	remove_spaces(duplicate);
+
+	if (duplicate[0] == '\0')
+	{
+		free(duplicate);
+		return (-1);
+	}
+	free(duplicate);
+	return (0);
+}

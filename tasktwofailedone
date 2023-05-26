@@ -36,8 +36,6 @@ while (1)
 	str = r_newline(str);
 	if (str[0] == '\0')
 		continue;
-	if (non_interspace(str) == -1)
-		continue;
 	ac[0] = strtok(str, delim);
 	count = 0;
 	while (ac[count] != NULL)

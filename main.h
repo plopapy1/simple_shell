@@ -11,6 +11,8 @@ void taskone(char **arg, char **env);
 
 void remove_spaces(char *str);
 
+int non_interspace(char *string);
+
 char *search_path(char *command, char **env);
 
 void tasktwo(char **arg, char **env);
