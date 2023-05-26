@@ -25,6 +25,8 @@ char *rm_leadingspace(char *strr);
 
 char *string_copy(const char *source);
 
+char *copydot(char *source);
+
 void freepointer_array(char **array, int size);
 
 int compareStrings(const char *str1, const char *str2);

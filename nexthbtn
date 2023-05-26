@@ -22,7 +22,7 @@ void tasktwo(char **arg, char **env)
 	size_t n;
 	int getstat, status, count;
 	char *str = NULL, *ac[MAX_COMMAND], *delim = " \n";
-signal(SIGINT, ter_minate);
+
 while (1)
 {
 	if (isatty(STDIN_FILENO))
@@ -39,10 +39,7 @@ while (1)
 	if (non_interspace(str) == -1)
 		continue;
 	str = rm_leadingspace(str);
-
 	pre_fix(str);
-		str = copydot(str);
-
 	ac[0] = strtok(str, delim);
 	if (file_exist(ac[0]) == 0)
 	{
@@ -68,6 +65,5 @@ while (1)
 	continue;
 
 }
-free(str);
 exit(0);
 }
