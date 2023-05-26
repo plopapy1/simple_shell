@@ -38,7 +38,6 @@ while (1)
 		continue;
 	if (non_interspace(str) == -1)
 		continue;
-	str = rm_leadingspace(str);
 	pre_fix(str);
 	ac[0] = strtok(str, delim);
 	if (file_exist(ac[0]) == 0)
@@ -58,10 +57,11 @@ while (1)
 		printf("%s No such file or directory\n", arg[0]);
 	}
 	else
-		wait(&status);
+	wait(&status);
 	}
+
 	else
-			printf("files does not exist\n");
+		printf("file does not exist\n");
 	continue;
 
 }

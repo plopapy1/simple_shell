@@ -21,6 +21,8 @@ char *arguments(char *input);
 
 int token_number(char *input);
 
+char *rm_leadingspace(char *strr);
+
 char *string_copy(const char *source);
 
 void freepointer_array(char **array, int size);
