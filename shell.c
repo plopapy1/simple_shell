@@ -18,12 +18,8 @@
  */
 int main(int argc, char **argv, char **envp)
 {
-	if (argc == 0)
-	{
-		taskone(argv, envp);
-	}
 
-	if (argc >= 1)
+	if (argc >= 0)
 	{
 		tasktwo(argv, envp);
 	}
