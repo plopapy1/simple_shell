@@ -16,13 +16,13 @@
  *@env: the environemt variable
  *Return: Nothing;
  */
-void tasktwo(char **arg, char **env)
+int tasktwo(char **arg, char **env)
 {
 	pid_t pid;
 	size_t n;
 	int getstat, status, count, evc = 0;
 	char *str = NULL, *ac[MAX_COMMAND], *delim = " \n";
-signal(SIGINT, ter_minate);
+
 while (1)
 {
 	if (isatty(STDIN_FILENO))
@@ -36,7 +36,7 @@ while (1)
 
 	str = r_newline(str);
 	if (strcmp(str, "exit") == 0)
-		exit(0);
+		return (0);
 if (strcmp(str, "env") == 0)
 evc = envi(env);
 if (evc == -1)
@@ -77,5 +77,6 @@ continue;
 
 }
 free(str);
-exit(0);
+return (0);
+
 }

@@ -14,9 +14,9 @@
  *Return: Nothing
  */
 
-void ter_minate(int sig)
+int ter_minate(int sig)
 {
 	(void)sig;
-	printf("\n");
-	exit(EXIT_SUCCESS);
+	return (0);
+
 }
