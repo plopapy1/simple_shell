@@ -20,7 +20,7 @@ void tasktwo(char **arg, char **env)
 {
 	pid_t pid;
 	size_t n;
-	int getstat, status, count, evc;
+	int getstat, status, count, evc = 0;
 	char *str = NULL, *ac[MAX_COMMAND], *delim = " \n";
 signal(SIGINT, ter_minate);
 while (1)
