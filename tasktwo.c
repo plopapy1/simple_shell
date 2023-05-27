@@ -71,7 +71,7 @@ continue;
 		{
 			free(str);
 		printf("%s No such file or directory\n", arg[0]);
-		exit(EXIT_FAILURE);
+		exit(2);
 		}
 	}
 	else
