@@ -19,7 +19,7 @@
 int main(int argc, char **argv, char **envp)
 {
 
-	if (argc >= 0)
+	if (argc >= 1)
 	{
 		tasktwo(argv, envp);
 	}

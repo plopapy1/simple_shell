@@ -88,6 +88,6 @@ continue;
 
 }
 free(str);
-return (2);
+return (0);
 
 }
