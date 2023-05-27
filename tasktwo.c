@@ -35,6 +35,7 @@ while (1)
 	}
 
 	str = r_newline(str);
+
 	if (strcmp(str, "exit") == 0)
 	{
 		free(str);
@@ -49,10 +50,11 @@ continue;
 	if (non_interspace(str) == -1)
 		continue;
 	str = rm_leadingspace(str);
-
+	if (strcmp(str, ".") != 0)
+	{
 	pre_fix(str);
 		str = copydot(str);
-
+	}
 	ac[0] = strtok(str, delim);
 	if (file_exist(ac[0]) == 0)
 	{
