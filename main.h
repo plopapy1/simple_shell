@@ -21,6 +21,8 @@ char *arguments(char *input);
 
 int token_number(char *input);
 
+int envi(char **en);
+
 char *rm_leadingspace(char *strr);
 
 char *string_copy(const char *source);

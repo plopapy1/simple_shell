@@ -20,7 +20,7 @@ void tasktwo(char **arg, char **env)
 {
 	pid_t pid;
 	size_t n;
-	int getstat, status, count;
+	int getstat, status, count, evc;
 	char *str = NULL, *ac[MAX_COMMAND], *delim = " \n";
 signal(SIGINT, ter_minate);
 while (1)
@@ -37,6 +37,10 @@ while (1)
 	str = r_newline(str);
 	if (strcmp(str, "exit") == 0)
 		exit(0);
+if (strcmp(str, "env") == 0)
+evc = envi(env);
+if (evc == -1)
+continue;
 	if (str[0] == '\0')
 		continue;
 	if (non_interspace(str) == -1)
@@ -68,7 +72,7 @@ while (1)
 	}
 	else
 			printf("files does not exist\n");
-	exit(2);
+
 	continue;
 
 }
