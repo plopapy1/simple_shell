@@ -23,5 +23,5 @@ int main(int argc, char **argv, char **envp)
 	{
 		tasktwo(argv, envp);
 	}
-		return (0);
+		return (2);
 }
