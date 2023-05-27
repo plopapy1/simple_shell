@@ -9,7 +9,7 @@
 #include "main.h"
 
 /**
-  * copy - prefix function
+  * copydot - prefix function
   * @str: string input
   * Return: returning str
   */

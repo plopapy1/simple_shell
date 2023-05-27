@@ -10,7 +10,7 @@
 
 /**
  *rm_leadingspace - remove the spaces that are at the beginning of a string
- *@str: str to remove space
+ *@strr: str to remove space
  *Return: Nothing;
  */
 

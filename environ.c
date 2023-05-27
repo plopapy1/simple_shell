@@ -9,8 +9,8 @@
 #include "main.h"
 
 /**
- *environ - print environment variable
- *@env: the environment variable
+ *envi - print environment variable
+ *@en: the environment variable
  *Return: zero
  */
 int envi(char **en)
