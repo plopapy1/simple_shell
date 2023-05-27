@@ -23,6 +23,6 @@ int main(int argc, char **argv, char **envp)
 	{
 		tasktwo(argv, envp);
 	}
-	exit(0);
+	exit(2);
 		return (2);
 }
