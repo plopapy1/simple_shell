@@ -68,7 +68,11 @@ continue;
 	if (pid == 0)
 	{
 		if (execve(ac[0], ac, env) == -1)
+		{
+			free(str);
 		printf("%s No such file or directory\n", arg[0]);
+		exit(EXIT_FAILURE);
+		}
 	}
 	else
 		wait(&status);
